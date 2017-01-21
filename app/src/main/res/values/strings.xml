@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Kotlin Good Reads</string>
+    <string name="title_book_detail">Book Detail</string>
+    <string name="key">FzGPbs7os8KK2Xc2e6cqzA</string>
+    <string name="secret">9kKBvGUDoyDPnWq3dMT5xFiFxFtyySm4YEYzeURL1Q</string>
+    <string name="book_cover">book cover</string>
+</resources>
