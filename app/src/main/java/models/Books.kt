@@ -1,11 +1,15 @@
 package models
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import paperparcel.PaperParcel
 
 /**
  * Created by nitingeetasagardasari on 1/21/17.
  */
+@PaperParcel
 data class Books(
         @SerializedName("3589685")
         @Expose
@@ -36,4 +40,15 @@ data class Books(
         var _124471069: _124471069? = null,
         @SerializedName("131387846")
         @Expose
-        var _131387846: _131387846? = null)
+        var _131387846: _131387846? = null) : Parcelable {
+
+    companion object {
+        @JvmField val CREATOR = PaperParcelBooks.CREATOR
+    }
+
+    override fun describeContents() = 0
+
+    override fun writeToParcel(dest: Parcel, flags: Int) {
+        PaperParcelBooks.writeToParcel(this, dest, flags)
+    }
+}

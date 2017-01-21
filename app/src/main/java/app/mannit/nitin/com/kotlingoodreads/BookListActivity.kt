@@ -67,7 +67,7 @@ class BookListActivity : AppCompatActivity() {
         val mResponse = ServiceGenerator.endPointInterface.getBooks()
         mResponse.enqueue(object : Callback<Output> {
             override fun onResponse(call: Call<Output>, response: Response<Output>) {
-                val books = response.body().books
+                val books = response.body().books!!
                 val titles = mutableListOf(books._112618928!!.title,
                         books._118889679!!.title, books._118889688!!.title,
                         books._124471069!!.title, books._131387846!!.title,
