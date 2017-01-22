@@ -2,6 +2,7 @@ package app.mannit.nitin.com.kotlingoodreads
 
 
 import ServiceGenerator
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
@@ -99,14 +100,15 @@ class BookListActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val title = mTitles[position]
             val image = mImages[position]
+
             if (title != null && image != null) {
                 holder.setItem(title, image)
             }
 
-            /*holder.mView.setOnClickListener { v ->
+            holder.mView.setOnClickListener { v ->
                 if (mTwoPane) {
                     val arguments = Bundle()
-                    arguments.putString(BookDetailFragment.ARG_ITEM_ID, holder.mItem!!.id)
+                    arguments.putString(BookDetailFragment.ARG_ITEM_ID, holder.mTitle.text.toString())
                     val fragment = BookDetailFragment()
                     fragment.arguments = arguments
                     supportFragmentManager.beginTransaction()
@@ -115,11 +117,11 @@ class BookListActivity : AppCompatActivity() {
                 } else {
                     val context = v.context
                     val intent = Intent(context, BookDetailActivity::class.java)
-                    intent.putExtra(BookDetailFragment.ARG_ITEM_ID, holder.mItem!!.id)
+                    intent.putExtra(BookDetailFragment.ARG_ITEM_ID, holder.mTitle.text.toString())
 
                     context.startActivity(intent)
                 }
-            }*/
+            }
         }
 
         override fun getItemCount(): Int {

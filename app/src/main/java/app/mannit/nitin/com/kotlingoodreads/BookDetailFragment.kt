@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import app.mannit.nitin.com.kotlingoodreads.dummy.DummyContent
 
 /**
  * A fragment representing a single Book detail screen.
@@ -24,7 +23,7 @@ class BookDetailFragment : Fragment() {
     /**
      * The dummy content this fragment is presenting.
      */
-    private var mItem: DummyContent.DummyItem? = null
+    private var mItem:String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,11 +32,11 @@ class BookDetailFragment : Fragment() {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = DummyContent.ITEM_MAP[arguments.getString(ARG_ITEM_ID)]
+            mItem = arguments.getString(ARG_ITEM_ID)
 
             val activity = this.activity
-            val appBarLayout = activity.findViewById(R.id.toolbar_layout) as CollapsingToolbarLayout
-            appBarLayout.title = mItem!!.content
+            val appBarLayout = activity.findViewById(R.id.toolbar_layout2) as? CollapsingToolbarLayout
+            appBarLayout?.title = mItem!!
         }
     }
 
@@ -47,7 +46,7 @@ class BookDetailFragment : Fragment() {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            (rootView.findViewById(R.id.book_detail) as TextView).text = mItem!!.details
+            (rootView.findViewById(R.id.book_detail) as TextView).text = mItem!!
         }
 
         return rootView
